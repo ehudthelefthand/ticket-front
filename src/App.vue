@@ -3,7 +3,7 @@
     <form>
       <div class="field">
         <div class="label">
-          <label for="type">ประเภท:</label>
+          <label for="type">ประเภท :</label>
         </div>
         <div class="content">
           <input id="type" type="text" placeholder="ประเภท" autofocus v-model="ticket.type" />
@@ -11,7 +11,7 @@
       </div>
       <div class="field">
         <div class="label">
-          <label for="description">รายละเอียด:</label>
+          <label for="description">รายละเอียด :</label>
         </div>
         <div class="content">
           <input id="description" type="text" placeholder="รายละเอียด" v-model="ticket.description" />
@@ -19,7 +19,7 @@
       </div>
       <div class="field">
         <div class="label">
-          <label for="fine">ค่าปรับ:</label>
+          <label for="fine">ค่าปรับ (บาท) :</label>
         </div>
         <div class="content">
           <input id="fine" type="number" v-model="ticket.fine" />
@@ -27,7 +27,7 @@
       </div>
       <div class="field">
         <div class="label">
-          <span>สถานะการจ่ายเงิน:</span>
+          <span>สถานะการจ่ายเงิน :</span>
         </div>
         <div class="content">
           <div class="radio">
@@ -42,7 +42,7 @@
       </div>
       <div class="field">
         <div clsas="content">
-          <button v-if="ticket.id" @click.prevent="updateTicket">บันทึก</button>
+          <button v-if="ticket.id !== undefined" @click.prevent="updateTicket">บันทึก</button>
           <button v-else @click.prevent="addTicket">เพิ่ม</button>
           <button @click.prevent="resetForm">ยกเลิก</button>
         </div>
@@ -53,7 +53,7 @@
         <tr>
           <th>ประเภท</th>
           <th>รายละเอียด</th>
-          <th>ค่าปรับ</th>
+          <th>ค่าปรับ (บาท)</th>
           <th>สถานะการจ่ายเงิน</th>
           <th></th>
           <th></th>
@@ -67,7 +67,7 @@
           <td>{{ ticket.fine }}</td>
           <td
             :class="{ yes: ticket.isPaid, no: !ticket.isPaid }"
-          >{{ ticket.isPaid ? 'ใช่' : 'ไม่ใช่' }}</td>
+          >{{ ticket.isPaid ? 'จ่ายแล้ว' : 'ยังไม่ได้จ่าย' }}</td>
           <td>
             <button class="small" @click="editTicket(ticket)">แก้ไข</button>
           </td>
@@ -188,7 +188,7 @@ form {
   font-weight: 700;
 }
 .field > .content {
-  flex: 4;
+  flex: 2;
 }
 .field > .content input[type="text"],
 .field > .content input[type="number"] {
@@ -215,13 +215,15 @@ input[type="text"]::-moz-placeholder,
 input[type="number"]::-moz-placeholder {
   font-family: "Kanit", sans-serif;
 }
-
 .field > .content .radio {
   display: inline-block;
   margin-right: 20px;
 }
 .field > .content .radio > input[type="radio"] {
   margin-right: 10px;
+}
+.field:last-child {
+  margin-top: 2rem;
 }
 
 table {
