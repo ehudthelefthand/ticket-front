@@ -36,8 +36,7 @@ Extra
 - เขียน test
 
 
-
-Submitted
+ตอนนี้กำลังมี class อยู่ นี่คือ รายชื่อคนทีส่งงานโปรเจ็คนี้
 
 https://github.com/Oudy1st/vue-day1
 
