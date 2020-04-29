@@ -1,24 +1,7 @@
-# front
+Submitted
 
-## Project setup
-```
-npm install
-```
+https://github.com/Oudy1st/vue-day1
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://github.com/DraconaMyxa/TrainVue-Day1.git
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://github.com/alphokung/training-vue
